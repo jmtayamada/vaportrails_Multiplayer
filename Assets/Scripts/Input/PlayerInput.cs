@@ -5,16 +5,20 @@ using System.Linq;
 
 public class PlayerInput : MonoBehaviour {
     Player player = null;
+    Player player2 = null;
 
     Controller lastActiveController;
 
     [SerializeField] bool humanControl = false;
     public bool isHuman => humanControl;
+    [SerializeField] bool human2Control = false;
+    public bool isHuman2 => human2Control;
 
     public ComputerController comControl { get; private set; }
 
 	void Awake() {
         player = ReInput.players.GetPlayer(0);
+        player2 = ReInput.players.GetPlayer(2);
         comControl = new ComputerController();
     }
 
@@ -22,6 +26,8 @@ public class PlayerInput : MonoBehaviour {
         player.AddInputEventDelegate(ShowHideMouse, UpdateLoopType.Update);
         player.controllers.hasKeyboard = true;
         player.controllers.AddController(ControllerType.Joystick, 0, true);
+        player2.AddInputEventDelegate(ShowHideMouse, UpdateLoopType.Update);
+        player2.controllers.hasKeyboard = true;
     }
 
     void LateUpdate() {
@@ -40,6 +46,14 @@ public class PlayerInput : MonoBehaviour {
         humanControl = false;
     }
 
+    public void EnableHuman2Control() {
+        human2Control = true;
+    }
+
+    public void DisableHuman2Control() {
+        human2Control = false;
+    }
+
     void ShowHideMouse(InputActionEventData actionData) {
         if (!humanControl) return;
         lastActiveController = player.controllers.GetLastActiveController();
@@ -48,21 +62,25 @@ public class PlayerInput : MonoBehaviour {
 
     public float GetAxis(int axisId) {
         if (humanControl) return player.GetAxis(axisId);
+        if (human2Control) return player2.GetAxis(axisId);
         else return comControl.GetAxis(axisId);
     }
 
     public bool ButtonDown(int b) {
         if (humanControl) return player.GetButtonDown(b);
+        if (human2Control) return player2.GetButtonDown(b);
         else return comControl.GetButtonDown(b);
     }
 
     public bool Button(int b) {
         if (humanControl) return player.GetButton(b);
+        if (human2Control) return player2.GetButton(b);
         else return comControl.GetButton(b);
     }
 
     public bool ButtonUp(int b) {
         if (humanControl) return player.GetButtonUp(b);
+        if (human2Control) return player2.GetButtonUp(b);
         else return comControl.GetButtonUp(b);
     }
 
@@ -138,6 +156,12 @@ public class PlayerInput : MonoBehaviour {
     public static PlayerInput GetPlayerOneInput() {
 		return GameObject.FindObjectsOfType<PlayerInput>()
 			.Where(x => x.humanControl)
+			.First();
+	}
+    
+    public static PlayerInput GetPlayerTwoInput() {
+		return GameObject.FindObjectsOfType<PlayerInput>()
+			.Where(x => x.human2Control)
 			.First();
 	}
 }
