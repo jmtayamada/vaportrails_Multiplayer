@@ -6504,7 +6504,7 @@ PrefabInstance:
       objectReference: {fileID: 4825080674368712656, guid: c3b5a2eea0c82ac46acc7bbf235c5823, type: 3}
     - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
       propertyPath: abilities.Array.size
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
       propertyPath: abilities.Array.data[1]
@@ -6520,19 +6520,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
       propertyPath: abilities.Array.data[4]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
-      propertyPath: abilities.Array.data[5]
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
-      propertyPath: abilities.Array.data[6]
+      propertyPath: abilities.Array.data[5]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
-      propertyPath: abilities.Array.data[7]
+      propertyPath: abilities.Array.data[6]
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
+      propertyPath: abilities.Array.data[7]
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7770972733226922344, guid: df318d9009829a34781aaa920593e61d, type: 3}
       propertyPath: abilities.Array.data[8]
@@ -16208,7 +16208,7 @@ MonoBehaviour:
   deathEffect: {fileID: 0}
   jumpNoise: {fileID: 11400000, guid: 8b27eba3fe91c8d4c9b28c89a0309a77, type: 2}
   faceRightOnStart: 1
-  abilities: 000000000100000002000000030000000400000005000000060000000700000008000000
+  abilities: 0000000001000000020000000400000005000000060000000700000008000000
   movement: {fileID: 11400000, guid: f35f2ea0509505d40970214e05097932, type: 2}
   _frozeInputs: 0
   currentAttack: {fileID: 0}
